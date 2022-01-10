@@ -123,7 +123,7 @@ console.log("Global Variable 'c' using 'let': " + c);
 
 ```
 
-![Scope] (./imgs/function/scope.png)
+![Scope] (imgs/function/scope.png)
 
 ### 렉시컬 스코프란?
 
