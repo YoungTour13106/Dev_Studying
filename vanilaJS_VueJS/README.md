@@ -10,5 +10,6 @@
 - 6. [x] [삼항 연산자와 배열 메소드(forEach, map, filter, reduce)](vanilaJS/Array_Method.md)
 - 7. [x] [객체 지향 프로그래밍(OOP, Object Oriented Programming)](vanilaJS/OOP.md)
 - 8. [x] [DOM(Document Object Oriented)](vanilaJS/DOM.md)
+- 9. [x] [HTTP API](vanilaJS/Http_Api.md)
 
 ### Vue.js
