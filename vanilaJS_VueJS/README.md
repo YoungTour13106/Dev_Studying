@@ -8,5 +8,6 @@
 - 4. [ ] [함수](vanilaJS/Function.md)
 - 5. [x] [반복문과 조건문](vanilaJS/Condition_Loop.md)
 - 6. [x] [삼항 연산자와 배열 메소드(forEach, map, filter, reduce)](vanilaJS/Array_Method.md)
+- 7. [x] [객체 지향 프로그래밍(OOP, Object Oriented Programming)](vanilaJS/OOP.md)
 
 ### Vue.js
