@@ -12,4 +12,7 @@
 - 8. [x] [DOM(Document Object Oriented)](vanilaJS/DOM.md)
 - 9. [x] [HTTP API](vanilaJS/Http_Api.md)
 
+- [x] [[실습] Todo List](vanilaJS/js-todo/README.md)
+- [x] [[실습] Typing Game](vanilaJS/typing-game/README.md)
+
 ### Vue.js
