@@ -87,9 +87,37 @@ while(iterator.hasNext()){
 for(T element : set){ 실행_코드 }
 ```
 
+#### 2.2.3. TreeSet
+
+1. `이진 트리(BinaryTree)`의 형태로 객체를 검색합니다.
+2. 부모 노드보다 작으면 왼쪽 노드에 저장합니다.
+3. 부모 노드보다 크면 오른쪽 노드에 저장합니다.
+4. 왼쪽 마지막 노드는 제일 작은 값이 됩니다.
+5. 오른쪽 마지막 노드는 제일 큰 값이 됩니다.
+6. 오름차순 정렬: [왼쪽 노드 → 부모 노드 → 오른쪽 노드]
+7. 내림차순 정렬: [오른쪽 노드 → 부모 노드 → 왼쪽 노드]
+
+```
+// TreeSet 생성 방법
+TreeSet<T> treeSet = new TreeSet<T>();
+TreeSet<T> treeSet = new TreeSet<T>(Comparator comp);
+
+// TreeSet 내림차순 정렬
+NavigableSet<T> descendingSet = treeSet.descendingSet();
+for(T element : descendingSet){
+	System.out.println(element);
+}
+
+// TreeSet 오름차순 정렬
+NavigableSet<T> ascendingSet = descendingSet.descendingSet();
+for(T element : ascendingSet){
+	System.out.println(element);
+}
+```
+
 ### 2.3. Map 컬렉션
 
-#### 2.3.1 Map 특징
+#### 2.3.1. Map 특징
 
 1. `키(Key)`와 `값(Value)`로 구성된 컬렉션입니다.
 2. `키(Key)`는 중복 저장할 수 없습니다. 따라서 `Set` 컬렉션입니다.
@@ -114,6 +142,13 @@ Set<Map.Entry<K, V>> entrySet = map.entrySet();
 Iterator<Map.Entry<K, V>> entryIterator = entrySet.iterator();
 while(entryIterator.hasNext()){
     Map.Entry<K, V> entry = entryIterator.next();
+}
+
+// Map 요소 접근 방법 3
+Set<Map.Entry<K, V>> entrySet = map.entrySet();
+for(Map.Entry<K, V> entry : entrySet){
+	K key = entry.getKey();
+	V value = entry.getValue();
 }
 ```
 
@@ -247,6 +282,35 @@ public class PropertiesExample {
 		System.out.println("username: "+username);
 		System.out.println("password: "+password);
 	}
+}
+```
+
+#### 2.3.5. TreeMap
+
+1. `이진 트리(BinaryTree)`의 형태로 `키(Key)` 값을 검색합니다.
+2. 부모 노드보다 작으면 왼쪽 노드에 저장합니다.
+3. 부모 노드보다 크면 오른쪽 노드에 저장합니다.
+4. 왼쪽 마지막 노드는 제일 작은 값이 됩니다.
+5. 오른쪽 마지막 노드는 제일 큰 값이 됩니다.
+6. 오름차순 정렬: [왼쪽 노드 → 부모 노드 → 오른쪽 노드]
+7. 내림차순 정렬: [오른쪽 노드 → 부모 노드 → 왼쪽 노드]
+
+```
+// TreeMap 생성 방법
+TreeMap<K, V> treeMap = new TreeMap<K, V>();
+
+// 내림 차순 정렬(Descending Sort)
+NavigableMap<K, V> descendingMap = treeMap.descendingMap();
+Set<Map.Entry<K, V>> entrySet = descendingMap.entrySet();
+for(Map.Entry<K, V> entry : entrySet){
+	System.out.println(entry.getKey()+"-"+entry.getValue());
+}
+
+// 오름 차순 정렬(Ascending Sort)
+NavigableMap<K, V> ascendingMap = descendingMap.descendingMap();
+Set<Map.Entry<K, V>> entrySet = ascendingMap.entrySet();
+for(Map.Entry<K, V> entry : entrySet){
+	System.out.println(entry.getKey()+"-"+entry.getValue());
 }
 ```
 
