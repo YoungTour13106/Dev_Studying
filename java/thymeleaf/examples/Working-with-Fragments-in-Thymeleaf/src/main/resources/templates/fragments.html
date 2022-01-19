@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Thymeleaf Fragments: home</title>
+<th:block th:include="fragments/general.html :: headerfiles"></th:block>
+</head>
+<body>
+	<!-- th:insert, th:replace -->
+	<!-- 
+	<header th:insert="fragments/general.html :: header"></header>
+	<p>Go to the next page to see fragments in action</p>
+	<div th:replace="fragments/general.html :: footer"></div>
+	-->
+	
+	<!-- Fragments Selector -->
+	<!--  
+	<header th:insert="fragments/general.html :: header"></header>
+	<div th:replace="fragments/general.html :: aside"></div>
+	<div th:replace="fragments/general.html :: div.another"></div>
+	<div th:replace="fragments/general.html :: footer"></div>
+	-->
+	
+	<!-- Parameterized Fragments -->
+	<!--  
+	<header th:insert="fragments/general.html :: header"></header>
+	<div th:replace="fragments/forms.html :: formField(field='Name', value='John Doe', size='40')"></div>
+	<div th:replace="fragments/general.html :: footer"></div>
+	-->
+	<!-- Fragment Inclusion Expressions -->
+	<!-- <div th:replace="${#lists.size(data) > 0} ? ~{fragments/menus.html :: dataPresent} : {fragments/menus.html :: noData}"></div> -->
+	
+	<!-- Flexible Layouts -->
+	<header th:replace="fragments/general.html :: header"></header>
+	<table>
+		<thead th:replace="fragments/table.html :: fields(~{ :: .myFields})">
+			<tr class="myFields">
+				<th>Id</th>
+				<th>Name</th>
+			</tr>
+		</thead>
+		
+		<div th:replace="fragments/table.html :: tableBody(tableData=${data})"></div>
+	</table>
+	<div th:replace="fragments/general.html :: footer"></div>
+</body>
+</html>

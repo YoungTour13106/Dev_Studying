@@ -176,3 +176,51 @@ CSS의 선택자(Selector)처럼 프래그먼트를 삽입할 수 있습니다.
 	<div th:replace="fragments/general.html :: footer"></div>
 </body>
 ```
+
+## 7. 프래그먼트 조건 표현식
+
+```
+<!-- Fragment Inclusion Expressions -->
+<div th:replace="${#lists.size(data) > 0} ?
+				~{fragments/menus.html :: dataPresent} :
+				~{fragments/menus.html :: noData}"></div>
+```
+
+## 8. 테이블 생성하기
+
+`table.html` 생성
+
+```
+<table>
+	<thead th:fragment="fields(theadFields)">
+		<tr th:replace="${theadFields}"></tr>
+	</thead>
+
+	<tbody th:fragment="tableBody(tableData)">
+		<tr th:each="row: ${tableData}">
+			<td th:text="${row.id}">0</td>
+			<td th:text="${row.name}">Name</td>
+		</tr>
+	</tbody>
+</table>
+```
+
+`fragments.html` 수정
+
+```
+<body>
+	<!-- Flexible Layouts -->
+	<header th:replace="fragments/general.html :: header"></header>
+	<table>
+		<thead th:replace="fragments/table.html :: fields(~{ :: .myFields})">
+			<tr class="myFields">
+				<th>Id</th>
+				<th>Name</th>
+			</tr>
+		</thead>
+
+		<div th:replace="fragments/table.html :: tableBody(tableData=${data})"></div>
+	</table>
+	<div th:replace="fragments/general.html :: footer"></div>
+</body>
+```
